@@ -200,6 +200,7 @@ int killMonster(int x,int y){//return gold obtained
 		if (temp==6&&y==4&&((x>=2&&x<=4)||(x>=6&&x<=8))){
 			stmain.map[stmain.floor][3][5]=CT_Null;
 			stmain.map[stmain.floor][6][5]=CT_Null;
+			stmain.map[stmain.floor][5][5]=CT_Null;
 			stmain.map[stmain.floor][0][5]=CT_UpStair;
 			break;
 		}
@@ -1152,6 +1153,9 @@ int touch(int x,int y){//return 0 to block moving
 		target=type;
 		stmain.map[stmain.floor][y][x]=CT_Null;
 		temp=(stmain.floor+9)/10*cell[type].attack;
+		if (!temp){
+			temp=100;
+		}
 		stmain.attack+=temp;
 		playSound(WAV_Get);
 		swprintf(statusbuf,szStatus_GetRedCrystal,temp);
@@ -1160,6 +1164,9 @@ int touch(int x,int y){//return 0 to block moving
 		target=type;
 		stmain.map[stmain.floor][y][x]=CT_Null;
 		temp=(stmain.floor+9)/10*cell[type].defend;
+		if (!temp){
+			temp=100;
+		}
 		stmain.defend+=temp;
 		playSound(WAV_Get);
 		swprintf(statusbuf,szStatus_GetBlueCrystal,temp);

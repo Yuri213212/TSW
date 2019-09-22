@@ -154,10 +154,6 @@ int storyProgress(){//return 1 to redraw
 	int i;
 
 	switch (story){
-	case ST_Intro:
-		swprintf(statusbuf,szStatus_Init);
-		story=ST_Null;
-		return 1;
 	case ST_3F1:
 		target=CT_BraveMan;
 		stmain.map[3][7][4]=CT_MagicSergeant;
@@ -339,6 +335,8 @@ int storyProgress(){//return 1 to redraw
 		target=CT_Null;
 		stmain.map[32][8][5]=CT_Null;
 		stmain.map[29][1][6]=CT_Null;
+		stmain.map[29][3][5]=CT_Null;
+		stmain.map[28][10][1]=CT_Null;
 		stmain.map[2][10][10]=CT_Thief;
 		statusbuf[0]=0;
 		dialogY=-1;
@@ -807,6 +805,22 @@ int storyChoice(int n){//return 1 to redraw //0=cancel, 1~9=choice 1~9, -2=prev,
 	int temp;
 
 	switch (story){
+	case ST_Intro:
+		switch (n){
+		case 1:
+			newGameNormal();
+			swprintf(statusbuf,szStatus_Init);
+			story=ST_Null;
+			return 1;
+		case 2:
+			newGameEasy();
+			swprintf(statusbuf,szStatus_Init);
+			story=ST_Null;
+			return 1;
+		default:
+			;
+		}
+		return 0;
 	case ST_Load:
 		if (n<0) return 0;
 		if (!n){

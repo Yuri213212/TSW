@@ -1,5 +1,5 @@
 /***
-TSW remake v1.0
+TSW remake v1.1
 Copyright (C) 2019 Yuri213212
 Site:https://github.com/Yuri213212/TSW
 Email: yuri213212@vip.qq.com
@@ -39,7 +39,8 @@ https://creativecommons.org/licenses/by-nc-sa/4.0/
 #define yoffset 16
 
 enum menuEnum{
-	MENU_New=40000,
+	MENU_New_Normal=40000,
+	MENU_New_Easy,
 	MENU_Load,
 	MENU_Save,
 	MENU_Help,
@@ -213,8 +214,8 @@ LRESULT CALLBACK WndProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lParam){
 			rect.top=0;
 			rect.right=640;
 			rect.bottom=384;
-			DrawTextW(hdcMem,szScreen_Intro,wcslen(szScreen_Intro),&rect,DT_NOPREFIX|DT_TOP|DT_LEFT);
-			DrawTextW(hdcMem,szScreen_PressEnter,wcslen(szScreen_PressEnter),&rect,DT_NOPREFIX|DT_SINGLELINE|DT_RIGHT|DT_BOTTOM);
+			DrawTextW(hdcMem,szScreen_IntroU,wcslen(szScreen_IntroU),&rect,DT_NOPREFIX|DT_TOP|DT_LEFT);
+			DrawTextW(hdcMem,szScreen_IntroD,wcslen(szScreen_IntroD),&rect,DT_NOPREFIX|DT_SINGLELINE|DT_RIGHT|DT_BOTTOM);
 			break;
 		case ST_Title:
 			SetTextColor(hdcMem,RGB(0,0,0));
@@ -385,7 +386,7 @@ LRESULT CALLBACK WndProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lParam){
 			rect.top=0;
 			rect.right=640;
 			rect.bottom=384;
-			DrawTextW(hdcMem,szScreen_Intro,wcslen(szScreen_Intro),&rect,DT_NOPREFIX|DT_TOP|DT_LEFT);
+			DrawTextW(hdcMem,szScreen_IntroU,wcslen(szScreen_IntroU),&rect,DT_NOPREFIX|DT_TOP|DT_LEFT);
 			DrawTextW(hdcMem,szScreen_TheEnd,wcslen(szScreen_TheEnd),&rect,DT_NOPREFIX|DT_SINGLELINE|DT_RIGHT|DT_BOTTOM);
 			break;
 		default:
@@ -734,9 +735,19 @@ LRESULT CALLBACK WndProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lParam){
 		return 0;
 	case WM_COMMAND:
 		switch (LOWORD(wParam)){
-		case MENU_New:
+		case MENU_New_Normal:
 			if (MessageBoxW(hwnd,szQuestion_NewGameConfirm,szTitle,MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2)==IDYES){
-				newGame();
+				newGameNormal();
+				target=CT_Null;
+				dialogY=-1;
+				story=0;
+				swprintf(statusbuf,szStatus_NewGame);
+				SendMessage(hwnd,WM_APP,0,0);
+			}
+			return 0;
+		case MENU_New_Easy:
+			if (MessageBoxW(hwnd,szQuestion_NewGameConfirm,szTitle,MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2)==IDYES){
+				newGameEasy();
 				target=CT_Null;
 				dialogY=-1;
 				story=0;
@@ -1328,9 +1339,7 @@ int main(){
 	WNDCLASSW wndclass;
 	HICON hIcon;
 	HMENU hMenu;
-#ifdef DEBUG
 	HMENU hMenuP;
-#endif
 	HWND hwnd;
 	MSG msg;
 	int cxScreen,cyScreen,width,height,i;
@@ -1391,13 +1400,15 @@ int main(){
 		DestroyIcon(hIcon);
 		return 0;
 	}
-	newGame();
 	cxScreen=GetSystemMetrics(SM_CXSCREEN);
 	cyScreen=GetSystemMetrics(SM_CYSCREEN);
 	width=clwidth+GetSystemMetrics(SM_CXFIXEDFRAME)*2;
 	height=clheight+GetSystemMetrics(SM_CYFIXEDFRAME)*2+GetSystemMetrics(SM_CYCAPTION)+GetSystemMetrics(SM_CYMENU);
 	hMenu=CreateMenu();
-	AppendMenuW(hMenu,MF_STRING,MENU_New,szMenu_New);
+	hMenuP=CreateMenu();
+	AppendMenuW(hMenuP,MF_STRING,MENU_New_Normal,szMenu_New_Normal);
+	AppendMenuW(hMenuP,MF_STRING,MENU_New_Easy,szMenu_New_Easy);
+	AppendMenuW(hMenu,MF_POPUP,(UINT_PTR)hMenuP,szMenu_New);
 	AppendMenuW(hMenu,MF_STRING,MENU_Load,szMenu_Load);
 	AppendMenuW(hMenu,MF_STRING,MENU_Save,szMenu_Save);
 	AppendMenuW(hMenu,MF_STRING,MENU_Help,szMenu_Help);

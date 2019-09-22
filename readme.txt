@@ -1,9 +1,13 @@
-﻿TSW (remake ver 1.0) by Yuri213212
+﻿TSW (remake ver 1.1) by Yuri213212
 
 使用协议：对于所有文件遵循CC BY-NC-SA 4.0。
 
-原作：Tower of the Sorcerer v1.2 by Oz & Kenichi
-参考作品：Flash版魔塔 by 温州、电子辞典版魔塔
+原作：
+·Tower of the Sorcerer v1.2 by Oz & Kenichi（原文件tsw.exe，对应正常模式）
+·魔法の塔Jr. for Windows v1.1 by Oz & Kenichi（原文件MtwJr11.exe，对应简单模式）
+参考作品：
+·Flash版魔塔 by 温州
+·电子辞典版魔塔
 
 本程序使用原版的素材，复刻了原版的地图、怪物数据和触发事件。
 但是界面操作复刻了Flash版，钥匙的显示以及允许打怪战败则和电子辞典版一样。

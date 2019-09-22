@@ -13,6 +13,8 @@ const wchar_t szUI_Round[]=			L"Round %d";
 const wchar_t szUI_Tower[]=			L"Tower";
 const wchar_t szUI_Floor[]=			L" F";
 const wchar_t szMenu_New[]=			L"New";
+const wchar_t szMenu_New_Normal[]=		L"Normal mode";
+const wchar_t szMenu_New_Easy[]=		L"Easy mode";
 const wchar_t szMenu_Load[]=			L"Load";
 const wchar_t szMenu_Save[]=			L"Save";
 const wchar_t szMenu_Help[]=			L"Help";
@@ -133,7 +135,7 @@ const wchar_t szScreen_StrongEnemy[]=		L"Can't be hit by you!";
 const wchar_t szScreen_Note[]=			L"Reviewing important information.\nPress Home/End to turn page, Esc to return.";
 const wchar_t szScreen_NoteNull[]=		L"No record.";
 
-const wchar_t szScreen_PressEnter[]=		L"Press Enter to continue.";
+const wchar_t szScreen_IntroD[]=		L"A brave-man is walking for save the princess.";
 const wchar_t szScreen_Coma1[]=			L"Now is the time to act.";
 const wchar_t szScreen_Coma2[]=			L"Using omniscient power,";
 const wchar_t szScreen_Coma3[]=			L"I shall break the sacred sword";
@@ -243,9 +245,9 @@ const wchar_t szDialog_Merchant45FB[]=		L"The sacred shield can defend you\nagai
 const wchar_t szDialog_Merchant47F[]=		L"Would you like to buy a super mattock\n(it's very rare) for 4000 Gold?";
 const wchar_t szDialog_Merchant47FB[]=		L"If you want to beat the Dragon,\nyou must have a holy sword,\na holy shield,\nand a Dragon slayer,\nand also you must be high level.";
 
-const wchar_t szDialog_Altar[]=			L"If you offer me %d Gold,\nI will grant your request. Will you?\n\nWhat option shall you choose?\n<1> Your life recovers by %d points.\n<2> The offensive power is raised %d points.\n<3> The defensive power is raised %d points.\n<Esc> Then I won't do it after all.";
+const wchar_t szDialog_Altar[]=			L"If you offer me %d Gold,\nI will grant your request. Will you?\n\nWhat option shall you choose?\n <1>  Your life recovers by %d points.\n <2>  The offensive power is raised %d points.\n <3>  The defensive power is raised %d points.\n<Esc> Then I won't do it after all.";
 
-const wchar_t szStatus_Intro[]=			L"A brave-man is walking for save the princess.";
+const wchar_t szStatus_Intro[]=			L"Select game mode:   <1> Normal mode   <2> Easy mode";
 const wchar_t szStatus_Init[]=			L"<S> Save game    <L> Load game    <R> Reset game";
 const wchar_t szStatus_Story[]=			L"Story mode, press Enter to continue.";
 

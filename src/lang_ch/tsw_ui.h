@@ -12,6 +12,8 @@ const wchar_t szUI_Round[]=			L"第%d轮";
 const wchar_t szUI_Tower[]=			L"魔塔";
 const wchar_t szUI_Floor[]=			L"楼";
 const wchar_t szMenu_New[]=			L"新游戏";
+const wchar_t szMenu_New_Normal[]=		L"正常模式";
+const wchar_t szMenu_New_Easy[]=		L"简单模式";
 const wchar_t szMenu_Load[]=			L"读盘";
 const wchar_t szMenu_Save[]=			L"存盘";
 const wchar_t szMenu_Help[]=			L"帮助";
@@ -131,7 +133,7 @@ const wchar_t szScreen_Book[]=			L"查看打怪结果\n按Esc返回。";
 const wchar_t szScreen_StrongEnemy[]=		L"无法攻击";
 const wchar_t szScreen_Note[]=			L"回顾重要信息\n按Home/End翻页，按Esc返回。";
 
-const wchar_t szScreen_PressEnter[]=		L"按回车键继续。";
+const wchar_t szScreen_IntroD[]=		L"勇者去救公主。";
 const wchar_t szScreen_Coma1[]=			L"行动时机至，";
 const wchar_t szScreen_Coma2[]=			L"全知之力使。";
 const wchar_t szScreen_Coma3[]=			L"打破神圣剑，";
@@ -241,9 +243,9 @@ const wchar_t szDialog_Merchant45FB[]=		L"神圣盾可以抵御魔法攻击，\n
 const wchar_t szDialog_Merchant47F[]=		L"你会用4000金币买一个超级镐吗？（它非常稀有）";
 const wchar_t szDialog_Merchant47FB[]=		L"如果你想打败龙，\n你必须拥有圣剑、圣盾和屠龙刀，\n同时你的等级也必须足够高。";
 
-const wchar_t szDialog_Altar[]=			L"如果你给我%d枚金币，我会接受你的请求。\n\n请选择一项：\n<1> 增加%d点生命值\n<2> 提升%d点攻击\n<3> 提升%d点防御\n<Esc> 还是算了";
+const wchar_t szDialog_Altar[]=			L"如果你给我%d枚金币，我会接受你的请求。\n\n请选择一项：\n <1>  增加%d点生命值\n <2>  提升%d点攻击\n <3>  提升%d点防御\n<Esc> 还是算了";
 
-const wchar_t szStatus_Intro[]=			L"勇者去救公主。";
+const wchar_t szStatus_Intro[]=			L"选择游戏模式：　<1>正常模式　　<2>简单模式";
 const wchar_t szStatus_Init[]=			L"<S>存档　　<L>读档　　<R>重置";
 const wchar_t szStatus_Story[]=			L"剧情模式，按回车键继续。";
 
@@ -263,8 +265,8 @@ const wchar_t szStatus_GetBlueKey[]=		L"获得了一枚蓝钥匙。";
 const wchar_t szStatus_GetYellowKey[]=		L"获得了一枚黄钥匙。";
 const wchar_t szStatus_GetRedElixir[]=		L"获得了一瓶红药水，生命值增加了%d点。";
 const wchar_t szStatus_GetBlueElixir[]=		L"获得了一瓶蓝药水，生命值增加了%d点。";
-const wchar_t szStatus_GetRedCrystal[]=		L"获得了一颗红宝石，攻击力增加了%d点。";
-const wchar_t szStatus_GetBlueCrystal[]=	L"获得了一颗蓝宝石，防御力增加了%d点。";
+const wchar_t szStatus_GetRedCrystal[]=		L"获得了一颗红水晶，攻击力增加了%d点。";
+const wchar_t szStatus_GetBlueCrystal[]=	L"获得了一颗蓝水晶，防御力增加了%d点。";
 const wchar_t szStatus_GetWeapon[]=		L"获得了一把%s，攻击力增加了%d点。";
 const wchar_t szStatus_GetArmor[]=		L"获得了一面%s，防御力增加了%d点。";
 const wchar_t szStatus_GetItem[]=		L"获得了%s。";

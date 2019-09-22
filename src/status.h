@@ -45,6 +45,7 @@ struct status{
 };
 
 int autosave;
+int map[51][11][11];
 struct status stmain,stsave[saveSlotCount];
 
 void st_reset(struct status *st){
@@ -108,9 +109,20 @@ void st_nextRound(){
 	st_save(SS_1F);
 }
 
-void newGame(){
+void newGameNormal(){
 	int i;
 
+	memcpy(&map,&map_normal,sizeof(map));
+	st_reset(&stmain);
+	for (i=0;i<saveSlotCount;++i){
+		st_reset(&stsave[i]);
+	}
+}
+
+void newGameEasy(){
+	int i;
+
+	memcpy(&map,&map_easy,sizeof(map));
 	st_reset(&stmain);
 	for (i=0;i<saveSlotCount;++i){
 		st_reset(&stsave[i]);
@@ -129,11 +141,13 @@ void setDefSaveFileName(){
 }
 
 void loadGame(FILE *fp){
+	fread(&map,sizeof(map),1,fp);
 	fread(&stmain,sizeof(struct status),1,fp);
 	fread(stsave,sizeof(struct status),saveSlotCount,fp);
 }
 
 void saveGame(FILE *fp){
+	fwrite(&map,sizeof(map),1,fp);
 	fwrite(&stmain,sizeof(struct status),1,fp);
 	fwrite(stsave,sizeof(struct status),saveSlotCount,fp);
 }
